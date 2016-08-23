@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sprik</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="fonylang.js"></script>
+    </head>
+    <body class="container">
+        <h1><span class="glyphicon glyphicon-book"></span> Samlade tramsiga språk</h1>
+        <input class="form-control input-lg" id="input" type="text" name="input" placeholder="Skriv för att översätta..." autofocus>
+
+        <br>
+
+        <blockquote>
+            <p class="lead well text-primary" id="robberlang"></p>
+            <footer>Rövarspråket</footer>
+        </blockquote>
+
+        <blockquote>
+            <p class="lead well text-success" id="plang"></p>
+            <footer>P-språket</footer>
+        </blockquote>
+
+        <blockquote>
+            <p class="lead well text-info" id="ilang"></p>
+            <footer>I-språket</footer>
+        </blockquote>
+
+        <blockquote>
+            <p class="lead well text-warning" id="figlang"></p>
+            <footer>Fikonspråket</footer>
+        </blockquote>
+
+    </body>
+    <script type="text/javascript">
+        var input      = document.getElementById('input');
+        var robberlang = document.getElementById('robberlang');
+        var plang      = document.getElementById('plang');
+        var ilang      = document.getElementById('ilang');
+        var figlang    = document.getElementById('figlang');
+        console.log(input);
+        input.addEventListener('input', function(event) {
+            console.log(event,this.value);
+            robberlang.innerText = fonylang.toRobber(this.value);
+            plang.innerText      = fonylang.toPlang(this.value);
+            ilang.innerText      = fonylang.toIlang(this.value);
+            figlang.innerText    = fonylang.toFiglang(this.value);
+        });
+    </script>
+</html>
